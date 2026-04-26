@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Lock, User, ArrowRight, AlertCircle, Phone, MapPin, Shield } from 'lucide-react';
 import { LegalModal } from '../components/legal-modal';
 
-const API = "http://ugp-backend.onrender.com";
+const API = "/api";
 
 export const AuthPage = () => {
   const location = useLocation();
@@ -36,13 +36,13 @@ export const AuthPage = () => {
     setIsModalOpen(true);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   setLoginError('');
 
   try {
     if (isLogin) {
-      const res = await fetch(`${API}/api/auth/login`, {
+      const res = await fetch(`${API}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -64,7 +64,7 @@ export const AuthPage = () => {
       navigate('/dashboard');
 
     } else {
-      const res = await fetch(`${API}/api/auth/signup`, {
+      const res = await fetch(`${API}/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

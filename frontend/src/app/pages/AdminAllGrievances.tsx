@@ -1,7 +1,7 @@
 // 🛠️ Admin feature: improved grievance management workflow
 import React, { useEffect, useState } from "react";
 
-const API = "http://ugp-backend.onrender.com";
+const API = "/api";
 
 const PRIORITY_ORDER: Record<string, number> = { High: 0, Medium: 1, Low: 2 };
 const PRIORITY_COLOR: Record<string, string> = {
@@ -30,7 +30,7 @@ const AdminAllGrievances = () => {
 
   // ✅ LOAD DATA
   function load() {
-    fetch(`${API}/api/admin/all`)
+    fetch(`${API}/admin/all`)
       .then((res) => res.json())
       .then((resData) => {
         const list = Array.isArray(resData) ? resData : [];
@@ -85,7 +85,7 @@ const sortedGroups = Object.keys(groupedData).sort((a, b) => {
   async function updateStatus() {
     if (!reviewing) return;
 
-    await fetch(`${API}/api/update-status`, {
+    await fetch(`${API}/update-status`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const sortedGroups = Object.keys(groupedData).sort((a, b) => {
 
     // assign officer
     if (officerName && officerPhone) {
-      await fetch(`${API}/api/assign-officer`, {
+      await fetch(`${API}/assign-officer`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
