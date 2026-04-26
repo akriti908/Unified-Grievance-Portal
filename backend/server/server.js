@@ -52,6 +52,11 @@ app.listen(PORT, () => {
 });
 
 // serve frontend
-app.use((req, res) => {
-  res.status(404).send("Route not found");
+
+// serve frontend
+app.use(express.static(path.join(__dirname, "../dist")));
+
+// fallback route (SAFE)
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Save, RefreshCw, Trash2, Download, CheckCircle2, AlertCircle, User, Bell, Database, Shield, Info } from 'lucide-react'
 
-const API = 'http://ugp-backend.onrender.com'
+const API = '/api'
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState('profile')
@@ -36,7 +36,7 @@ export default function Settings() {
 
   // Check backend status
   useEffect(() => {
-  fetch(`${API}/api/settings`)
+  fetch(`${API}/settings`)
     .then(res => res.json())
     .then(data => {
       if (data.appName) setAppName(data.appName)
@@ -45,7 +45,7 @@ export default function Settings() {
 }, [])
 
     useEffect(() => {
-  fetch(`${API}/api/admin/users`)
+  fetch(`${API}/admin/users`)
     .then(res => res.json())
     .then(data => setUsers(data))
 }, [])
@@ -58,7 +58,7 @@ export default function Settings() {
   }
 
   async function saveSystem() {
-  await fetch(`${API}/api/settings`, {
+  await fetch(`${API}/settings`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -85,7 +85,7 @@ export default function Settings() {
   }
 
   function exportAllData() {
-    fetch(`${API}/api/admin/all`)
+    fetch(`${API}/admin/all`)
       .then(res => res.json())
       .then(data => {
         const json = JSON.stringify(data, null, 2)

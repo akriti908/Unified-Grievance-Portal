@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CheckCircle2, Clock, AlertCircle, XCircle, Phone, User, Building2, MapPin, Tag, Calendar } from 'lucide-react'
 
-const API = 'http://ugp-backend.onrender.com';
+const API = '/api';
 
 const STATUS_STEPS = ['Pending', 'Processing', 'Resolved']
 
@@ -37,7 +37,7 @@ export default function TrackStatus() {
   setResult(null);
 
   try {
-    const res = await fetch(`${API}/api/track/${trackId.trim().toUpperCase()}`);
+    const res = await fetch(`${API}/track/${trackId.trim().toUpperCase()}`);
     const data = await res.json();
 
     console.log("API DATA:", data);

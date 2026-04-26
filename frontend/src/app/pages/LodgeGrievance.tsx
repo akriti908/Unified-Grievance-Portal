@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const API = 'http://ugp-backend.onrender.com/api';
+const API = '/api';
 
 const LodgeGrievance = () => {
   const [formData, setFormData] = useState({

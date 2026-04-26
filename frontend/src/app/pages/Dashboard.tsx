@@ -298,7 +298,7 @@ import {
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 
-const API = "http://ugp-backend.onrender.com";
+const API = "/api";
 
 type StatType = {
   label: string;
@@ -322,7 +322,7 @@ export const Dashboard = () => {
       let url = "";
 
       if (isAdmin) {
-        url = `${API}/api/admin/all`;
+        url = `${API}/admin/all`;
       } else {
         if (!userContact) {
           console.warn("No contact found for citizen");
@@ -331,7 +331,7 @@ export const Dashboard = () => {
           return;
         }
 
-        url = `${API}/api/my-grievances?contact=${encodeURIComponent(userContact)}`;
+        url = `${API}/my-grievances?contact=${encodeURIComponent(userContact)}`;
       }
 
       console.log("FETCHING:", url);

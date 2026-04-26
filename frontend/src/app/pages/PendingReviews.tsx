@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Star } from 'lucide-react'
 
-const API = 'http://ugp-backend.onrender.com'
+const API = '/api'
 
 const PRIORITY_COLOR: Record<string, string> = {
   High: 'bg-red-100 text-red-800',
@@ -24,7 +24,7 @@ export default function PendingReviews() {
   const userRole = currentUser ? JSON.parse(currentUser).role : 'citizen'
   const userContact = localStorage.getItem("contact")
   function load() {
-    fetch(`${API}/api/admin/all`)
+    fetch(`${API}/admin/all`)
       .then(res => res.json())
       .then(data => {
         const list = Array.isArray(data) ? data : []
@@ -49,7 +49,7 @@ export default function PendingReviews() {
 
   async function submitReview() {
     if (rating === 0) return
-    await fetch(`${API}/api/submit-review`, {
+    await fetch(`${API}/submit-review`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

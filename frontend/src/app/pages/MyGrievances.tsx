@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 
-const API = "http://ugp-backend.onrender.com";
+const API = "/api";
 
 const PRIORITY_COLOR: Record<string, string> = {
   High: "bg-red-100 text-red-800",
@@ -29,7 +29,7 @@ const MyGrievances = () => {
   useEffect(() => {
     if (!userContact) return;
 
-    fetch(`${API}/api/my-grievances?contact=${userContact}`)
+    fetch(`${API}/my-grievances?contact=${userContact}`)
       .then((res) => res.json())
       .then((data) => {
         setGrievances(data);
