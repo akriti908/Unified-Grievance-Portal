@@ -18,8 +18,7 @@ connectDB();
 
 // ✅ 2. Middleware FIRST
 app.use(cors({
-  origin: "true";
-  credentials: "true";
+  origin: "*"
 }));
 app.use(express.json());
 
@@ -45,15 +44,14 @@ app.get("/api/test-track", (req, res) => {
   res.send("TRACK ROUTE WORKS");
 });
 
-// ✅ 7. Start server LAST
-app.listen(5000, () => {
-  console.log("🚀 Server running on port 5000");
+// ✅ Start server LAST
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
 
-
 // serve frontend
-app.use(express.static(path.join(__dirname, "dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+app.use((req, res) => {
+  res.status(404).send("Route not found");
 });
