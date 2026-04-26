@@ -1,7 +1,7 @@
 // 🛠️ Admin feature: improved grievance management workflow
 import React, { useEffect, useState } from "react";
 
-const API = "http://localhost:5000";
+const API = "http://ugp-backend.onrender.com";
 
 const PRIORITY_ORDER: Record<string, number> = { High: 0, Medium: 1, Low: 2 };
 const PRIORITY_COLOR: Record<string, string> = {
