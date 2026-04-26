@@ -298,7 +298,7 @@ import {
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 
-const API = "http://localhost:5000";
+const API = "http://ugp-backend.onrender.com";
 
 type StatType = {
   label: string;
