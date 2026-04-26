@@ -5,15 +5,20 @@ const connectDB = require("./db");
 const grievanceRoutes = require("./grievanceRoutes");
 const authRoutes = require("./authRoutes");
 
+const path = require("path");
 const app = express();
+const fs = require("fs");
+
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
 
 // ✅ 1. Connect DB
 connectDB();
 
 // ✅ 2. Middleware FIRST
 app.use(cors({
-  origin: true,   // allows all origins
-  credentials: true
+  origin: "*"
 }));
 app.use(express.json());
 
@@ -42,4 +47,12 @@ app.get("/api/test-track", (req, res) => {
 // ✅ 7. Start server LAST
 app.listen(5000, () => {
   console.log("🚀 Server running on port 5000");
+});
+
+
+// serve frontend
+app.use(express.static(path.join(__dirname, "dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
