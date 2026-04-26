@@ -77,6 +77,7 @@ const LodgeGrievance = () => {
       console.log("API RESPONSE:", data);
 
       // 🔴 HANDLE DUPLICATE HERE
+      // 🚀 Handles AI + duplicate response from backend
       if (data.duplicate) {
         setResult({
           duplicate: true,

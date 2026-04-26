@@ -1,3 +1,4 @@
+# ⚡ AI MODEL: Assigns priority level based on severity of text
 import sys
 
 def get_priority(description: str) -> dict:

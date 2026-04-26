@@ -60,6 +60,7 @@ class GrievanceService {
     .replace(/\s+/g, " ")
     .trim();
 
+    // 🔁 DUPLICATE DETECTION: Prevent same grievance submission
   // 🔴 DB DUPLICATE CHECK
   const existing = await Grievance.findOne({
     text: { $regex: `^${cleanText}$`, $options: "i" },
@@ -77,6 +78,7 @@ class GrievanceService {
     };
   }
 
+  // 🧠 AI PROCESSING: Analyze grievance using Python services
   // 🔹 AI Calls
   let category = await getCategory(cleanText) || "General";
 
