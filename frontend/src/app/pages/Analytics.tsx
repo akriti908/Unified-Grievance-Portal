@@ -5,7 +5,7 @@ import {
   PieChart, Pie, Cell
 } from 'recharts'
 
-const API = 'http://localhost:5000'
+const API = 'http://ugp-backend.onrender.com'
 
 const COLORS = ['#1E40AF','#10B981','#F59E0B','#EF4444','#8B5CF6','#EC4899','#06B6D4','#84CC16']
 
