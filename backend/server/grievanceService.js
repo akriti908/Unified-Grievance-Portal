@@ -36,7 +36,7 @@
 // };
 
 const Grievance = require("./Grievance");
-const User = require("./User"); 
+const User = require("./user"); 
 const {getCategory,getPriority} = require("./pythonBridge");
 const {registerDuplicate } = require("./pythonBridge");
 
