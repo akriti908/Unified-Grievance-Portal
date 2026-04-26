@@ -61,6 +61,7 @@ class GrievanceService {
     .trim();
 
   // 🔴 DB DUPLICATE CHECK
+  // 🔵 Duplicate detection feature implemented
   const existing = await Grievance.findOne({
     text: { $regex: `^${cleanText}$`, $options: "i" },
     city: city.trim(),
@@ -68,6 +69,7 @@ class GrievanceService {
   });
 
   if (existing) {
+    // 🔴 Duplicate found → prevent re-submission
     return {
       duplicate: true,
       details: {
