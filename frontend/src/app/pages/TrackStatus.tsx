@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CheckCircle2, Clock, AlertCircle, XCircle, Phone, User, Building2, MapPin, Tag, Calendar } from 'lucide-react'
 
-const API = 'http://localhost:5000';
+const API = 'http://ugp-backend.onrender.com';
 
 const STATUS_STEPS = ['Pending', 'Processing', 'Resolved']
 
