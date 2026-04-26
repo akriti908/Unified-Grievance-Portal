@@ -1,3 +1,4 @@
+# 📍 AI MODEL: Maps grievance to department/location authority
 STATE_OFFICES = {
     "andhra pradesh": {
         "office": "AP Grievance Redressal Cell, Amaravati",

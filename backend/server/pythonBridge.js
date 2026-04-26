@@ -47,11 +47,14 @@ function runPython(file, args = []) {
   });
 }
 
+// 🤖 AI FEATURE: Category Detection using Python NLP model
 // ✅ CATEGORY
 exports.getCategory = async (text) => {
   const result = await runPython("categorizer.py", [text]);
   return result || "General";
 };
+
+// ⚡ AI FEATURE: Priority Prediction (High / Medium / Low)
 
 // ✅ PRIORITY
 exports.getPriority = async (text) => {
@@ -79,6 +82,7 @@ exports.registerDuplicate = async (text, trackingId) => {
   await runPython("duplicate.py", ["register", text, trackingId]);
 };
 
+// 📍 AI FEATURE: Smart Location Mapping based on input
 // ✅ LOCATION INFO
 exports.getLocationInfo = async (state, district, pincode, category) => {
   const result = await runPython("location.py", [
