@@ -29,7 +29,7 @@ function runPython(file, args = []) {
   return new Promise((resolve) => {
     const scriptPath = path.join(__dirname, "ai", file);
 
-    const process = spawn("python", [scriptPath, ...args]);
+    const process = spawn("python3", [scriptPath, ...args]);
 
     let result = "";
 
