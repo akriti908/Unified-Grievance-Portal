@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Star } from 'lucide-react'
 
-const API = 'http://localhost:5000'
+const API = 'http://ugp-backend.onrender.com'
 
 const PRIORITY_COLOR: Record<string, string> = {
   High: 'bg-red-100 text-red-800',
