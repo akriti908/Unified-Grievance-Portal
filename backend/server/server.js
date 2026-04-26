@@ -18,7 +18,8 @@ connectDB();
 
 // ✅ 2. Middleware FIRST
 app.use(cors({
-  origin: "*"
+  origin: "true";
+  credentials: "true";
 }));
 app.use(express.json());
 
