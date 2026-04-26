@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Lock, User, ArrowRight, AlertCircle, Phone, MapPin, Shield } from 'lucide-react';
 import { LegalModal } from '../components/legal-modal';
 
-const API = "http://localhost:5000";
+const API = "http://ugp-backend.onrender.com";
 
 export const AuthPage = () => {
   const location = useLocation();
