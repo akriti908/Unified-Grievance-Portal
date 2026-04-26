@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Save, RefreshCw, Trash2, Download, CheckCircle2, AlertCircle, User, Bell, Database, Shield, Info } from 'lucide-react'
 
-const API = 'http://localhost:5000'
+const API = 'http://ugp-backend.onrender.com'
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState('profile')
