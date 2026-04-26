@@ -34,7 +34,7 @@ router.get('/admin/users', async (req, res) => {
   res.json(users);
 });
 
-const User = require('./User');
+const User = require('./user');
 
 // SIGNUP
 router.post('/auth/signup', async (req, res) => {
