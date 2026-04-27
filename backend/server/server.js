@@ -93,7 +93,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api", grievanceRoutes);
 
 // STATIC FRONTEND (IMPORTANT)
-const frontendPath = path.join(__dirname, "../frontend/dist");
+const frontendPath = path.join(__dirname, "../../frontend/dist");
 
 app.use(express.static(frontendPath));
 
@@ -103,7 +103,7 @@ app.use((req, res, next) => {
     return next();
   }
 
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  return res.sendFile(path.join(frontendPath, "index.html"));
 });
 
 // server
