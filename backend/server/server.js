@@ -53,12 +53,10 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
-// serve frontend
-
-// serve frontend
-app.use(express.static(path.join(__dirname, "../dist")));
+// serve frontend build
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 // fallback route (SAFE)
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist", "index.html"));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
