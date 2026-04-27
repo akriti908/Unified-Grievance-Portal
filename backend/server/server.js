@@ -93,10 +93,16 @@ app.use("/api/auth", authRoutes);
 app.use("/api", grievanceRoutes);
 
 // STATIC FRONTEND (IMPORTANT)
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+const frontendPath = path.join(__dirname, "../frontend/dist");
+
+app.use(express.static(frontendPath));
 
 // FRONTEND FALLBACK (IMPORTANT)
-app.get("*", (req, res) => {
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
+    return next();
+  }
+
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
