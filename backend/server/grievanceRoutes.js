@@ -29,12 +29,11 @@ router.get("/settings", controller.getSettings);
 
 router.post("/settings", controller.updateSettings);
 
+const User = require('./user');
 router.get('/admin/users', async (req, res) => {
   const users = await User.find().sort({ createdAt: -1 });
   res.json(users);
 });
-
-const User = require('./user');
 
 // SIGNUP
 router.post('/auth/signup', async (req, res) => {
